@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 250594186}
   - component: {fileID: 250594185}
   m_Layer: 0
-  m_Name: Diamond
+  m_Name: Brain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -613,7 +613,7 @@ GameObject:
   - component: {fileID: 348598999}
   - component: {fileID: 348598998}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Skull
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -738,7 +738,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: 1009049853055315898, guid: b435ced192623da46957b0951a97cb86, type: 3}
-  m_Color: {r: 0.9728174, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1231,7 +1231,7 @@ GameObject:
   - component: {fileID: 780749015}
   - component: {fileID: 780749014}
   m_Layer: 0
-  m_Name: Triangle
+  m_Name: Toe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1356,7 +1356,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: 2838464033401493198, guid: 55a6605c093962548bb172928aefa230, type: 3}
-  m_Color: {r: 0, g: 0.22306561, b: 1, a: 1}
+  m_Color: {r: 0.63237894, g: 0.89433956, b: 0.61928797, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1379,7 +1379,7 @@ GameObject:
   - component: {fileID: 879857087}
   - component: {fileID: 879857086}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: artery
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
