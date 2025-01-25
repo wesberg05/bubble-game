@@ -25,7 +25,7 @@ public class Game : MonoBehaviour
     private float cooldown = 0f;
     private float logTimer = 0f;
     private const float LOG_INTERVAL = 0.2f;
-    private const float COOLDOWN_DURATION = 3f;
+    private const float COOLDOWN_DURATION = 1f;
 
 
     private void Start()
