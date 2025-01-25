@@ -11,13 +11,6 @@ public class WitchHealthBar : MonoBehaviour
         UpdateHealthBar();  // Update the health bar on start
     }
 
-    void Update()
-{
-    if (Input.GetKeyDown(KeyCode.Space))  // Press Space to simulate taking damage
-    {
-        TakeDamage(1);  // Decrease health by 1 heart
-    }
-}
 
     public void TakeDamage(int damage)
     {
