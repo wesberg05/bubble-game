@@ -1,28 +1,27 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 //[System.Serializable]
 public class Game : MonoBehaviour
 {
+
+    //init scripts and game objects
     public Ingredient[] ingredients;
-
     public GameObject cauldron;
-
     public GameObject player;
-    public Vector3 cauldronPosition;
+
+    //init positions
+    private Vector3 cauldronPosition;
+    private Vector3 mousePosition;
+    private Vector3[] ingredientPositions;
     
-    public Vector3[] ingredientPositions;
-    public Vector3 mousePosition;
-    
-    private bool isDragging = false;
+    //init drag/drop 
     private Ingredient draggedIngredient = null;
+    private bool isDragging = false;
 
+    [SerializeField]
+    private float cooldown;
 
-/*************  ✨ Codeium Command ⭐  *************/
-/// <summary>
-/// Initializes the ingredientPositions array with the current positions of all ingredients.
-/// </summary>
-
-/******  be5eacb6-9f2e-469b-b95d-2d3e220a3ddf  *******/
     private void Start()
     {
         cauldronPosition = cauldron.transform.position;
@@ -40,6 +39,7 @@ public class Game : MonoBehaviour
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0; // Ensure the z-coordinate matches your 2D plane
 
+        //when you click the left mouse button
         if (Input.GetMouseButtonDown(0))
         {
             for (int i = 0; i < ingredients.Length; i++)
@@ -53,11 +53,13 @@ public class Game : MonoBehaviour
             }
         }
         
+        //follow the mouse with picked up
         if (isDragging && draggedIngredient != null)
         {
             draggedIngredient.transform.position = mousePosition;
         }
 
+        //check when the mouse button is released
         if (Input.GetMouseButtonUp(0) && draggedIngredient != null)
         {
             isDragging = false;
@@ -67,8 +69,7 @@ public class Game : MonoBehaviour
             {
                 draggedIngredient.transform.position = cauldronPosition;
             }
-
-            else
+            else if (!IsValidDropPosition(draggedIngredient.transform.position) && cooldown <= 0)
             {
                 // Return to starting position
                 int index = System.Array.IndexOf(ingredients, draggedIngredient);
@@ -77,16 +78,9 @@ public class Game : MonoBehaviour
                     draggedIngredient.transform.position = ingredientPositions[index];
                 }
             }
-            
+
             draggedIngredient = null;
         }
-    }
-
-    private Vector3 SnapToGrid(Vector3 position)
-    {
-        float snappedX = Mathf.Round(position.x);
-        float snappedY = Mathf.Round(position.y);
-        return new Vector3(snappedX, snappedY, position.z);
     }
 
     private bool IsValidDropPosition(Vector3 position)
