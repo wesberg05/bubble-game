@@ -10,6 +10,8 @@ public class Game : MonoBehaviour
     public GameObject cauldron;
     public GameObject player;
     private Cauldron cauldronScript;
+    private AudioManager audioManager;
+
 
     //init positions
 
@@ -35,6 +37,13 @@ public class Game : MonoBehaviour
             Debug.LogError("Cauldron GameObject not assigned!");
             return;
         }
+
+        audioManager = FindObjectOfType<AudioManager>();
+        if (audioManager == null)
+        {
+            Debug.LogError("AudioManager not found in scene!");
+        }
+
 
         cauldronPosition = cauldron.transform.position;
         cauldronScript = cauldron.GetComponent<Cauldron>();
@@ -138,6 +147,8 @@ public class Game : MonoBehaviour
                         draggedIngredient.transform.position = cauldronPosition;
                         cauldronScript.AddIngredient(draggedIngredient);
                         cooldown = COOLDOWN_DURATION;
+                        audioManager.PlayBoilSound();
+
                     }
                     else if (!cauldronScript.HasIngredient())
                     {
@@ -145,6 +156,8 @@ public class Game : MonoBehaviour
                         draggedIngredient.transform.position = cauldronPosition;
                         cauldronScript.AddIngredient(draggedIngredient);
                         cooldown = COOLDOWN_DURATION;
+                        audioManager.PlayBoilSound();
+
                     }
                     else
                     {
