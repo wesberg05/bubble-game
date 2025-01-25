@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Ingredient : MonoBehaviour
 {
-    public enum COLOR { NO_COLOR = -1, YELLOW, RED, BLUE, PURPLE }
-    public COLOR color = 0;
+    public enum TYPE { NO_TYPE, SKULL, ARTERY, TOE, BRAIN }
+    public TYPE type = TYPE.NO_TYPE;
 }
 
