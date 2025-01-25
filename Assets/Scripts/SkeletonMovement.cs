@@ -35,6 +35,8 @@ public class SkeletonMovement : MonoBehaviour
             GameObject selectedPrefab = ingredientPrefabs[Random.Range(0, ingredientPrefabs.Length)];
             iconDisplay = Instantiate(selectedPrefab, transform.position + Vector3.up * iconOffset, Quaternion.identity);
             iconDisplay.transform.SetParent(transform);
+            iconDisplay.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+
         }
     }
 

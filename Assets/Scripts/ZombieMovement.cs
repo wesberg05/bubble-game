@@ -11,8 +11,12 @@ public class ZombieMovement : MonoBehaviour
     public float moveSpeed = 1f;
     private WitchHealthBar witchHealth;
     private bool canDealDamage = true;
-    public GameObject iconDisplay;
-    private float iconOffset = 1f; // Offset above skeleton's head
+    public GameObject leftIconDisplay;
+    public GameObject rightIconDisplay;
+    private float iconOffset = 1f; // Offset above zombie's head
+    private float iconHorizontalSpacing = 0.25f; // Spacing between icons
+
+
 
 
 
@@ -26,16 +30,36 @@ public class ZombieMovement : MonoBehaviour
             witchHealth = witch.GetComponent<WitchHealthBar>();
         }
 
-        // Randomly select and create an ingredient icon
+        // Get all ingredient prefabs
         GameObject[] ingredientPrefabs = GameObject.Find("Ingredients").GetComponentsInChildren<Ingredient>()
             .Select(i => i.gameObject).ToArray();
         
         if (ingredientPrefabs.Length > 0)
         {
-            GameObject selectedPrefab = ingredientPrefabs[Random.Range(0, ingredientPrefabs.Length)];
-            iconDisplay = Instantiate(selectedPrefab, transform.position + Vector3.up * iconOffset, Quaternion.identity);
-            iconDisplay.transform.SetParent(transform);
+            // Create first icon (left)
+            GameObject selectedPrefab1 = ingredientPrefabs[Random.Range(0, ingredientPrefabs.Length)];
+            leftIconDisplay = Instantiate(selectedPrefab1, 
+                transform.position + Vector3.up * iconOffset + Vector3.left * iconHorizontalSpacing, 
+                Quaternion.identity);
+            leftIconDisplay.transform.SetParent(transform);
+            leftIconDisplay.transform.localScale = new Vector3(2f, 2f, 2f);
+
+
+            // Create second icon (right) - ensure it's different from the first
+            GameObject selectedPrefab2;
+            do
+            {
+                selectedPrefab2 = ingredientPrefabs[Random.Range(0, ingredientPrefabs.Length)];
+            } while (selectedPrefab2 == selectedPrefab1);
+
+            rightIconDisplay = Instantiate(selectedPrefab2, 
+                transform.position + Vector3.up * iconOffset + Vector3.right * iconHorizontalSpacing, 
+                Quaternion.identity);
+            rightIconDisplay.transform.SetParent(transform);
+            rightIconDisplay.transform.localScale = new Vector3(2f, 2f, 2f);
+
         }
+
     }
 
 
@@ -48,11 +72,16 @@ public class ZombieMovement : MonoBehaviour
             transform.position += direction * moveSpeed * Time.deltaTime;
         }
 
-        // Update icon position
-        if (iconDisplay != null)
+        // Update icons position
+        if (leftIconDisplay != null)
         {
-            iconDisplay.transform.position = transform.position + Vector3.up * iconOffset;
+            leftIconDisplay.transform.position = transform.position + Vector3.up * iconOffset + Vector3.left * iconHorizontalSpacing;
         }
+        if (rightIconDisplay != null)
+        {
+            rightIconDisplay.transform.position = transform.position + Vector3.up * iconOffset + Vector3.right * iconHorizontalSpacing;
+        }
+
     }
 
 
@@ -63,10 +92,15 @@ public class ZombieMovement : MonoBehaviour
         if (other.gameObject.name == "witch" && canDealDamage && witchHealth != null)
         {
             witchHealth.TakeDamage(1);
-            if (iconDisplay != null)
+            if (leftIconDisplay != null)
             {
-                Destroy(iconDisplay);
+                Destroy(leftIconDisplay);
             }
+            if (rightIconDisplay != null)
+            {
+                Destroy(rightIconDisplay);
+            }
+
             Destroy(gameObject); // Destroy the skeleton upon contact
         }
     }
