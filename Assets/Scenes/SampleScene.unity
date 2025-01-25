@@ -265,7 +265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d864dc7c0d8a9b468a1be94fa1f74dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 4
 --- !u!61 &250594186
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1122,7 +1122,7 @@ BoxCollider2D:
   m_UsedByEffector: 1
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.01598768, y: -0.004259169}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1132,7 +1132,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.53635764, y: 0.5144614}
   m_EdgeRadius: 0
 --- !u!212 &634515678
 SpriteRenderer:
@@ -1198,8 +1198,8 @@ Transform:
   m_GameObject: {fileID: 634515676}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0556, y: -0.6462, z: 0}
-  m_LocalScale: {x: 1.7490162, y: 1.6413451, z: 0}
+  m_LocalPosition: {x: -0.0137, y: -0.6462, z: 0}
+  m_LocalScale: {x: 0.9380751, y: 0.8304233, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1379,7 +1379,7 @@ GameObject:
   - component: {fileID: 879857087}
   - component: {fileID: 879857086}
   m_Layer: 0
-  m_Name: artery
+  m_Name: Artery
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
