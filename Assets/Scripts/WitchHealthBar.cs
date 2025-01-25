@@ -34,4 +34,12 @@ public class WitchHealthBar : MonoBehaviour
             }
         }
     }
+
+    void Update() 
+    {
+        if (currentHealth <= 0)
+        {
+            // Handle game over or other actions when the witch is dead
+        }
+    }
 }
