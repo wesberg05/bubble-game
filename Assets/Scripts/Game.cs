@@ -12,6 +12,10 @@ public class Game : MonoBehaviour
     
     public Vector3[] ingredientPositions;
     public Vector3 mousePosition;
+    
+    private bool isDragging = false;
+    private Ingredient draggedIngredient = null;
+
 
 /*************  ✨ Codeium Command ⭐  *************/
 /// <summary>
@@ -31,23 +35,66 @@ public class Game : MonoBehaviour
     }
 
     private void Update()
-{
-    // Convert mouse position from screen space to world space
-    mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-    mousePosition.z = 0; // Ensure the z-coordinate matches your 2D plane
-
-    if (Input.GetMouseButtonDown(0))
     {
-        for (int i = 0; i < ingredients.Length; i++)
+        // Convert mouse position from screen space to world space
+        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = 0; // Ensure the z-coordinate matches your 2D plane
+
+        if (Input.GetMouseButtonDown(0))
         {
-            // Check overlap with the collider in world space
-            if (ingredients[i].GetComponent<BoxCollider2D>().OverlapPoint(mousePosition))
+            for (int i = 0; i < ingredients.Length; i++)
             {
-                Debug.Log("Ingredient " + i + " clicked");
-                // Update the ingredient's position
-                ingredients[i].transform.position = cauldronPosition;
+                if (ingredients[i].GetComponent<BoxCollider2D>().OverlapPoint(mousePosition))
+                {
+                    isDragging = true;
+                    draggedIngredient = ingredients[i];
+                    break;
+                }
             }
         }
+        
+        if (isDragging && draggedIngredient != null)
+        {
+            draggedIngredient.transform.position = mousePosition;
+        }
+
+        if (Input.GetMouseButtonUp(0) && draggedIngredient != null)
+        {
+            isDragging = false;
+            
+            // Check if the ingredient should snap to cauldron
+            if (IsValidDropPosition(draggedIngredient.transform.position))
+            {
+                draggedIngredient.transform.position = cauldronPosition;
+            }
+
+            else
+            {
+                // Return to starting position
+                int index = System.Array.IndexOf(ingredients, draggedIngredient);
+                if (index != -1)
+                {
+                    draggedIngredient.transform.position = ingredientPositions[index];
+                }
+            }
+            
+            draggedIngredient = null;
+        }
     }
-}
+
+    private Vector3 SnapToGrid(Vector3 position)
+    {
+        float snappedX = Mathf.Round(position.x);
+        float snappedY = Mathf.Round(position.y);
+        return new Vector3(snappedX, snappedY, position.z);
+    }
+
+    private bool IsValidDropPosition(Vector3 position)
+    {
+        // Check if the ingredient is close enough to the cauldron
+        float snapDistance = 2f; // Adjust this value to change how close ingredients need to be to snap
+        return Vector2.Distance(position, cauldronPosition) < snapDistance;
+    }
+
+
 }
