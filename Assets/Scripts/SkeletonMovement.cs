@@ -1,4 +1,9 @@
+
 using UnityEngine;
+using System.Linq;
+
+
+
 
 public class SkeletonMovement : MonoBehaviour
 {
@@ -6,6 +11,9 @@ public class SkeletonMovement : MonoBehaviour
     public float moveSpeed = 2f;
     private WitchHealthBar witchHealth;
     private bool canDealDamage = true;
+    public GameObject iconDisplay;
+    private float iconOffset = 1f; // Offset above skeleton's head
+
 
 
     void Start()
@@ -17,7 +25,19 @@ public class SkeletonMovement : MonoBehaviour
             witchTransform = witch.transform;
             witchHealth = witch.GetComponent<WitchHealthBar>();
         }
+
+        // Randomly select and create an ingredient icon
+        GameObject[] ingredientPrefabs = GameObject.Find("Ingredients").GetComponentsInChildren<Ingredient>()
+            .Select(i => i.gameObject).ToArray();
+        
+        if (ingredientPrefabs.Length > 0)
+        {
+            GameObject selectedPrefab = ingredientPrefabs[Random.Range(0, ingredientPrefabs.Length)];
+            iconDisplay = Instantiate(selectedPrefab, transform.position + Vector3.up * iconOffset, Quaternion.identity);
+            iconDisplay.transform.SetParent(transform);
+        }
     }
+
 
     void Update()
     {
@@ -27,7 +47,15 @@ public class SkeletonMovement : MonoBehaviour
             Vector3 direction = (witchTransform.position - transform.position).normalized;
             transform.position += direction * moveSpeed * Time.deltaTime;
         }
+
+        // Update icon position
+        if (iconDisplay != null)
+        {
+            iconDisplay.transform.position = transform.position + Vector3.up * iconOffset;
+        }
     }
+
+
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -35,9 +63,14 @@ public class SkeletonMovement : MonoBehaviour
         if (other.gameObject.name == "witch" && canDealDamage && witchHealth != null)
         {
             witchHealth.TakeDamage(1);
+            if (iconDisplay != null)
+            {
+                Destroy(iconDisplay);
+            }
             Destroy(gameObject); // Destroy the skeleton upon contact
         }
     }
+
 
 
 }
