@@ -3,31 +3,34 @@ using UnityEngine;
 public class Cauldron : MonoBehaviour
 {
     public Ingredient currentIngredient;
-    public float timer = 0f;
-    private const float RESET_TIME = 3f;
+    public GameObject bubble;
     
+    void Start()
+    {
 
+    }
 
 
     public Ingredient RemoveCurrentIngredient()
     {
         Ingredient previous = currentIngredient;
         currentIngredient = null;
-        timer = 0f;
+        SpawnBubble();
         return previous;
     }
 
     public void AddIngredient(Ingredient ingredient)
     {
         currentIngredient = ingredient;
-        timer = RESET_TIME;
     }
-
-
-
 
     public bool HasIngredient()
     {
         return currentIngredient != null;
+    }
+
+    public void SpawnBubble()
+    {
+        Instantiate(bubble, new Vector3(transform.position.x, transform.position.y, 0), transform.rotation);
     }
 }
