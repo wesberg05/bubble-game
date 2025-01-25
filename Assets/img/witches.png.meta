@@ -1,0 +1,304 @@
+fileFormatVersion: 2
+guid: 8589360d2c2313345a691a5e2857e31b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8580069082308837021
+    second: witches_0
+  - first:
+      213: 2764418452435308997
+    second: witches_1
+  - first:
+      213: 128693349112853108
+    second: witches_2
+  - first:
+      213: 1434929093291941188
+    second: witches_3
+  - first:
+      213: 6419646780787729253
+    second: witches_4
+  - first:
+      213: 2847196464847684815
+    second: witches_5
+  - first:
+      213: 7223743095880434211
+    second: witches_6
+  - first:
+      213: 6688754997180540982
+    second: witches_7
+  - first:
+      213: -7651928096681447645
+    second: witches_8
+  - first:
+      213: 8415045790949357488
+    second: witches_9
+  - first:
+      213: 8906531452149730731
+    second: witches_10
+  - first:
+      213: -3973260399873126345
+    second: witches_11
+  - first:
+      213: -471725233838697955
+    second: witches_12
+  - first:
+      213: 8463532308903329491
+    second: witches_13
+  - first:
+      213: 6875497156593003662
+    second: witches_14
+  - first:
+      213: -7235040690372196541
+    second: witches_15
+  - first:
+      213: 6736631426836802891
+    second: witches_16
+  - first:
+      213: -2608730296188765371
+    second: witches_17
+  - first:
+      213: -6015809784297798692
+    second: witches_18
+  - first:
+      213: 8705380385985308757
+    second: witches_19
+  - first:
+      213: -4692503558409053492
+    second: witches_20
+  - first:
+      213: -5255804638051657192
+    second: witches_21
+  - first:
+      213: 2968629484696420944
+    second: witches_22
+  - first:
+      213: 2921027512375618417
+    second: witches_23
+  - first:
+      213: -6809705163626901404
+    second: witches_24
+  - first:
+      213: -8548597848097147829
+    second: witches_25
+  - first:
+      213: -1637508689669088927
+    second: witches_26
+  - first:
+      213: -2537189714824514297
+    second: witches_27
+  - first:
+      213: 1786999938269328572
+    second: witches_28
+  - first:
+      213: -992687386363034479
+    second: witches_29
+  - first:
+      213: -4465838230719129339
+    second: witches_30
+  - first:
+      213: -7080201530840085246
+    second: witches_31
+  - first:
+      213: -944135625157061570
+    second: witches_32
+  - first:
+      213: -3952919850571404128
+    second: witches_33
+  - first:
+      213: -6915151471037520984
+    second: witches_34
+  - first:
+      213: 3095285387162990973
+    second: witches_35
+  - first:
+      213: -4934290423125972390
+    second: witches_36
+  - first:
+      213: 6466955094527920903
+    second: witches_37
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: witches_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 160
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92c8fff112100fe48a2a9eada79251b3
+      internalID: -270810778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 2c873f7a1a7acae4ab5f3ae83351e4ef
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      witches_0: -270810778
+      witches_1: 381729554
+      witches_10: 2008401294
+      witches_11: 2997385
+      witches_12: -1358541066
+      witches_13: -1859987994
+      witches_14: 1640319956
+      witches_15: 1161411073
+      witches_16: -911070925
+      witches_17: -551305751
+      witches_18: 1767473889
+      witches_19: -508907079
+      witches_2: -1168525553
+      witches_20: 384598241
+      witches_21: 1393017437
+      witches_22: -1616445725
+      witches_23: 529054324
+      witches_24: -1307227671
+      witches_25: 1828255950
+      witches_26: 1286822935
+      witches_27: -526014595
+      witches_28: 580153687
+      witches_29: -1255054531
+      witches_3: 139160958
+      witches_30: -1598392316
+      witches_31: -1960550861
+      witches_32: 921533202
+      witches_33: -1889106664
+      witches_34: -501472786
+      witches_35: 637069035
+      witches_36: 1135272572
+      witches_37: -616423163
+      witches_4: -1512386835
+      witches_5: 8797730
+      witches_6: -161044041
+      witches_7: 1304561328
+      witches_8: -1740658663
+      witches_9: 1031628401
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
