@@ -5,20 +5,21 @@ using UnityEngine.UI;
 public class TitleScreenManager : MonoBehaviour
 {
     [Header("UI Elements")]
-    public GameObject titleScreen; // The title screen UI
-    public GameObject settingsMenu; // The settings menu UI
+    public GameObject titleScreen;      // The title screen UI
+    public GameObject settingsMenu;     // The settings menu UI
 
     [Header("Buttons")]
-    public Button startButton; // The "Start" button
-    public Button settingsButton; // The "Settings" button
-    public Button backButton; // The "Back" button in the settings menu
+    public Button startButton;          // The "Start" button
+    public Button settingsButton;       // The "Settings" button
+    public Button backButton;           // The "Back" button in the settings menu
 
-    [Header("Game Scene")]
-    public string gameSceneName = "SampleScene"; // Name of the scene to load for the game
+    [Header("Scene Names")]
+    public string gameSceneName = "GameScene"; // Name of the scene to load for the game
+    public string mainMenuSceneName = "Title"; // Name of the main menu scene
 
     private void Start()
     {
-        // Ensure the correct initial UI state
+        // Set initial UI states
         titleScreen.SetActive(true);
         settingsMenu.SetActive(false);
 
@@ -30,27 +31,22 @@ public class TitleScreenManager : MonoBehaviour
 
     public void StartGame()
     {
-        // Log to confirm StartGame is being called
-        Debug.Log("StartGame method triggered!");
-        // Load the game scene
+        Debug.Log("Game Started!");
         settingsMenu.SetActive(false);
-        SceneManager.LoadScene(gameSceneName);
+        titleScreen.SetActive(false); // Hide title screen when starting the game
+        SceneManager.LoadScene(gameSceneName); // Load the GameScene
     }
 
     public void OpenSettings()
     {
-        // Log to confirm OpenSettings is being called
-        Debug.Log("OpenSettings method triggered!");
-        // Show the settings menu and hide the title screen
+        Debug.Log("Settings Opened!");
         settingsMenu.SetActive(true);
         titleScreen.SetActive(false);
     }
 
     public void CloseSettings()
     {
-        // Log to confirm CloseSettings is being called
-        Debug.Log("CloseSettings method triggered!");
-        // Hide the settings menu and show the title screen
+        Debug.Log("Settings Closed!");
         settingsMenu.SetActive(false);
         titleScreen.SetActive(true);
     }

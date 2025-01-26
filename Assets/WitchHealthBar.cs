@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WitchHealthBar : MonoBehaviour
 {
@@ -11,12 +12,18 @@ public class WitchHealthBar : MonoBehaviour
         UpdateHealthBar();  // Update the health bar on start
     }
 
-
     public void TakeDamage(int damage)
     {
+        Debug.Log("Damage taken: " + damage);  // Check if this is printed in the console
         currentHealth -= damage;  // Decrease health
         currentHealth = Mathf.Clamp(currentHealth, 0, hearts.Length);  // Ensure health doesn't go below 0 or above max
         UpdateHealthBar();  // Update the health bar when taking damage
+
+        if (currentHealth == 0) // If no health left, load the Game Over scene
+        {
+            Debug.Log("Game Over triggered!");  // Check if this is printed in the console
+            LoadGameOverScene();  // Trigger the Game Over screen
+        }
     }
 
     void UpdateHealthBar()
@@ -33,5 +40,11 @@ public class WitchHealthBar : MonoBehaviour
                 hearts[i].SetActive(false); // Deactivate the heart if health is lost
             }
         }
+    }
+
+    void LoadGameOverScene()
+    {
+        // Load the Game Over scene
+        SceneManager.LoadScene("gameOverScene");  // Replace "GameOver" with the actual name of your Game Over scene
     }
 }
