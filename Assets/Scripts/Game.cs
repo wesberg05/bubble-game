@@ -9,8 +9,10 @@ public class Game : MonoBehaviour
     public Ingredient[] ingredients;
     public GameObject cauldron;
     public GameObject player;
+    public GameObject bubblePrefab; // Assign in inspector
     private Cauldron cauldronScript;
     private AudioManager audioManager;
+
 
 
     //init positions
@@ -77,11 +79,24 @@ public class Game : MonoBehaviour
                 logTimer = LOG_INTERVAL;
             }
 
-            // When cooldown reaches 0, return ingredient and reset cooldown
+            // When cooldown reaches 0, spawn bubble and return ingredient
             if (cooldown <= 0)
             {
                 if (cauldronScript != null && cauldronScript.HasIngredient())
                 {
+                    // Spawn bubble
+                    if (bubblePrefab != null)
+                    {
+                        Vector3 spawnPos = cauldronPosition + new Vector3(Random.Range(-0.5f, 0.5f), 0.5f, 0);
+                        GameObject bubbleObj = Instantiate(bubblePrefab, spawnPos, Quaternion.identity);
+                        Bubble bubble = bubbleObj.GetComponent<Bubble>();
+                        if (bubble != null)
+                        {
+                            bubble.type = cauldronScript.currentIngredient.type;
+                        }
+                    }
+                    
+                    // Return ingredient to original position
                     Ingredient expiredIngredient = cauldronScript.RemoveCurrentIngredient();
                     int index = System.Array.IndexOf(ingredients, expiredIngredient);
                     if (index != -1)
@@ -89,7 +104,9 @@ public class Game : MonoBehaviour
                         expiredIngredient.transform.position = ingredientPositions[index];
                     }
                 }
+                cooldown = 0; // Ensure cooldown stays at 0 after expiring
             }
+
 
         }
 
