@@ -14,8 +14,8 @@ public class VolumeControl : MonoBehaviour
     private void Start()
     {
         // Set both sliders to 1 by default (maximum volume)
-        musicSlider.value = 1f;
-        characterSlider.value = 1f;
+        musicSlider.value = 0.5f;
+        characterSlider.value = 0.8f;
 
         // Apply the volume levels to audio sources
         backgroundMusicSource.volume = musicSlider.value;
