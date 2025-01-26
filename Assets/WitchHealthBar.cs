@@ -45,6 +45,7 @@ public class WitchHealthBar : MonoBehaviour
     void LoadGameOverScene()
     {
         // Load the Game Over scene
+        Debug.Log("Loading Scene..");
         SceneManager.LoadScene("gameOverScene");  // Replace "GameOver" with the actual name of your Game Over scene
     }
 }

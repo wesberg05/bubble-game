@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Game Over Triggered in GameManager!");
         gameOverScreen.SetActive(true);  // Show the Game Over screen
-        witchHealthBar.DisableHealthBar(); // Optionally, disable health bar
+      
     }
 
     public void RestartGame()
